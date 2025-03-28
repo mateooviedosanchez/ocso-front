@@ -1,10 +1,11 @@
 "use client";
+
 import React, { useState } from "react";
 import { Button, Input, Spinner } from "@heroui/react";
 import axios from "axios";
 import Link from "next/link";
 import { API_URL } from "@/constants";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
     const [submitting, setSubmitting] = useState(false);
