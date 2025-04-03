@@ -8,7 +8,7 @@ export async function createLocation(formData: FormData) {
     if (!token) return null;
     let location: any = {}
     let locationLatLng = [0, 0];
-    for (const key of formData.keys()) {
+    for (const key of Array.from(formData.keys())) {
         const value = formData.get(key)
         if (value) {
             if (key === "locationLat") {
