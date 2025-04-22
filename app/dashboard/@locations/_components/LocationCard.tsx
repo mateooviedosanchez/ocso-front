@@ -18,12 +18,25 @@ export default async function LocationCard({store}: {store: string | string[] | 
     return (
         <Card>
             <CardHeader>
-            <b className="w-full">Tienda: {data.locationName}</b>
+            <b className="w-full text-2x1">{data.locationName}</b>
             </CardHeader>
             <Divider/>
-            <CardBody>
-                <p className="w-full">Manager: <Link href={{pathname: `/dashboard/managers`
-                }}><b>{data.manager?.managerFullName}</b></Link></p>
+            <CardBody className="flex flex-col w-full items-center">
+                <p className="w-full">
+                    Manager: {" "}
+                    <Link href={{pathname: `/dashboard/managers/${data.manager?.managerId}` }}>
+                        <b>{data.manager?.managerFullName}</b>
+                    </Link>
+                </p>
+                <p className="w-full">
+                    Direccion: <b>{data.locationAddress}</b>
+                </p>
+                    <iframe
+                        className="border-2 border-orange-800 rounded-md my-2"
+                        width="300"
+                        height="200"
+                        src={`https://www.google.com/maps/=${data.locationLatLng[0]},${data.locationLatLng[1]}`}>
+                    </iframe>
             </CardBody>
         </Card>
     )

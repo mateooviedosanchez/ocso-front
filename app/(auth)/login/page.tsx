@@ -18,9 +18,12 @@ export default function LoginPage() {
         authData.userPassword = formData.get("userPassword");
         try {
             const response = await fetch(`${API_URL}/auth/login`, {
-                method: "POST",
-                body: JSON.stringify(authData),
-                credentials: 'include',
+              method: "POST",
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(authData),
+              credentials: 'include'
             });
             if (response.status === 201) router.push('/dashboard');
             setSubmitting(false);
