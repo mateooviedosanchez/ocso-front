@@ -25,7 +25,7 @@ export default function EmployeePhotoCard({
       <Divider />
       <Image
         src="employee.emplyeePhoto"
-        className="z-0"
+        className="z-0 object-cover"
         classNames={{ img: "size-72" }}
       />
       <CardFooter className="absolute bottom-0 py-2 h-14">
